@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lo que le pasa a tu cuerpo — Be Well</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fdf4f0;
+  --rose:#c9624a;
+  --rose-l:#f2a48e;
+  --blush:#f7d4c8;
+  --mauve:#8b4a6b;
+  --cream:#fff9f7;
+  --text:#3a1f1a;
+  --mid:#7a4a3a;
+  --dim:rgba(58,31,26,0.4);
+  --line:rgba(201,98,74,0.13);
+  --serif:'Cormorant Garamond',serif;
+  --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+
+/* ══ OVERLAY ══ */
+#ov{position:fixed;inset:0;z-index:9999;
+  background:linear-gradient(145deg,#f7d4c8,#fde8e0 45%,#ead0e4);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:16px;padding:32px;transition:opacity .7s}
+#ov.out{opacity:0;pointer-events:none}
+.ov-logo{font-family:var(--serif);font-size:13px;letter-spacing:.35em;color:rgba(139,74,107,.5);text-transform:uppercase}
+.ov-t{font-family:var(--serif);font-size:clamp(26px,5vw,50px);font-weight:300;color:var(--text);text-align:center;line-height:1.08;max-width:500px}
+.ov-t em{font-style:italic;color:var(--rose)}
+.ov-s{font-size:13px;color:var(--mid);text-align:center;max-width:300px;line-height:1.8}
+.ov-b{display:flex;flex-direction:column;align-items:center;gap:11px;margin-top:8px;width:100%;max-width:280px}
+.b-snd{width:100%;padding:14px;background:var(--rose);color:#fff;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;border:none;border-radius:40px;cursor:pointer;transition:all .3s;box-shadow:0 8px 20px rgba(201,98,74,.28)}
+.b-snd:hover{background:var(--mauve)}
+.b-sil{width:100%;padding:12px;background:transparent;color:var(--mid);font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid rgba(201,98,74,.25);border-radius:40px;cursor:pointer;transition:all .3s}
+.b-sil:hover{border-color:var(--rose);color:var(--rose)}
+
+/* ══ NAV ══ */
+#prog{position:fixed;top:0;left:0;z-index:998;height:3px;width:0%;background:linear-gradient(90deg,var(--rose-l),var(--rose),var(--mauve));box-shadow:0 0 8px rgba(201,98,74,.3)}
+#nav{position:fixed;top:0;left:0;right:0;z-index:997;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;pointer-events:none}
+.nav-brand{font-family:var(--serif);font-size:13px;letter-spacing:.22em;color:rgba(201,98,74,.5);font-style:italic;background:rgba(253,244,240,.8);padding:5px 12px;border-radius:20px;backdrop-filter:blur(8px)}
+#skip{pointer-events:all;background:rgba(253,244,240,.88);border:1.5px solid rgba(201,98,74,.2);color:var(--rose);font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;padding:7px 14px;border-radius:40px;cursor:pointer;backdrop-filter:blur(10px);transition:all .3s}
+#skip:hover{background:var(--rose);color:#fff}
+#aud{position:fixed;bottom:22px;left:18px;z-index:997;width:40px;height:40px;border-radius:50%;background:rgba(253,244,240,.92);border:1.5px solid rgba(201,98,74,.22);color:var(--rose);display:none;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 4px 14px rgba(201,98,74,.15);transition:all .3s}
+#aud:hover{background:var(--rose);color:#fff}
+#aud svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ══ BASIC SECTIONS ══ */
+section,.plain-sec{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:1;padding:90px 20px 70px}
+.div{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);z-index:1;position:relative}
+
+/* ══ TYPE ══ */
+.ey{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);opacity:.6;margin-bottom:12px}
+.BIG{font-family:var(--serif);font-size:clamp(42px,8vw,96px);font-weight:300;line-height:1;color:var(--text);text-align:center;max-width:820px}
+.BIG em{font-style:italic;color:var(--rose)}
+.MID{font-family:var(--serif);font-size:clamp(28px,4.5vw,56px);font-weight:300;line-height:1.06;color:var(--text);text-align:center;max-width:720px}
+.MID em{font-style:italic;color:var(--rose)}
+.cap{font-size:14px;line-height:1.9;color:var(--mid);text-align:center;max-width:420px;margin-top:10px}
+.hook{font-family:var(--serif);font-style:italic;font-size:clamp(20px,3.2vw,36px);color:var(--mauve);text-align:center;margin-top:48px;line-height:1.15;max-width:600px;opacity:0;transform:translateY(14px);transition:opacity .8s,transform .8s}
+.hook.vis{opacity:1;transform:translateY(0)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.36s}.d4{transition-delay:.52s}
+.sc{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.35}
+.sc span{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose)}
+.scl{width:1px;height:30px;background:linear-gradient(180deg,var(--rose-l),transparent);animation:scP 2.2s infinite}
+@keyframes scP{0%,100%{opacity:.2;transform:scaleY(.3)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ══ HERO ══ */
+#s0{background:linear-gradient(155deg,#fde8e0,#f7d4c8 40%,#ead0e4);min-height:100vh}
+
+/* ══ DECLINE ══ */
+.bars{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:180px;margin:36px 0 10px;width:100%;max-width:480px}
+.bc{display:flex;flex-direction:column;align-items:center;gap:0;flex:1}
+.bn{font-family:var(--serif);font-size:17px;color:var(--rose);margin-bottom:4px;opacity:0;transition:opacity .4s}
+.bn.v{opacity:1}
+.bt{width:100%;background:rgba(201,98,74,.08);border-radius:7px 7px 0 0;height:160px;position:relative;overflow:hidden}
+.bf{position:absolute;bottom:0;left:0;right:0;border-radius:7px 7px 0 0;transform:scaleY(0);transform-origin:bottom;transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+.bf.f1{background:linear-gradient(180deg,rgba(201,98,74,.85),rgba(242,164,142,.38))}
+.bf.f2{background:linear-gradient(180deg,rgba(201,98,74,.65),rgba(242,164,142,.28))}
+.bf.f3{background:linear-gradient(180deg,rgba(201,98,74,.45),rgba(242,164,142,.18))}
+.bf.f4{background:linear-gradient(180deg,rgba(201,98,74,.28),rgba(242,164,142,.1))}
+.ba{font-size:10px;color:var(--dim);letter-spacing:.05em;margin-top:6px}
+
+/* ══ SCROLL-JACK SECTION ══ */
+.sj-outer{position:relative;z-index:1}
+/* tall scroll space */
+.sj-space{height:100vh} /* per state */
+.sj-sticky{
+  position:sticky;top:0;height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.sj-top{text-align:center;margin-bottom:28px;position:relative;z-index:2}
+.sj-top .ey{margin-bottom:8px}
+.sj-mid{position:relative;width:100%;max-width:600px;display:flex;align-items:center;justify-content:center;gap:0}
+/* figure container */
+.sj-fig{position:relative;width:160px;flex-shrink:0}
+@media(max-width:520px){.sj-fig{width:110px}}
+.sj-fig svg{width:100%;overflow:visible}
+/* state label */
+.sj-label{
+  position:absolute;
+  opacity:0;transition:opacity .5s;
+  pointer-events:none;
+}
+.sj-label.left{right:calc(50% + 90px);text-align:right}
+.sj-label.right{left:calc(50% + 90px);text-align:left}
+@media(max-width:520px){
+  .sj-label.left{right:calc(50% + 65px)}
+  .sj-label.right{left:calc(50% + 65px)}
+}
+.sj-label.active{opacity:1}
+.sj-lname{font-family:var(--serif);font-size:clamp(18px,3vw,28px);color:var(--text);line-height:1.1;margin-bottom:4px}
+.sj-lnote{font-size:12px;color:var(--mid);line-height:1.6;max-width:160px}
+/* SVG state layers inside figure */
+.fig-state{position:absolute;inset:0;opacity:0;transition:opacity .6s}
+.fig-state.active{opacity:1}
+/* progress dots */
+.sj-dots{display:flex;gap:7px;margin-top:22px;justify-content:center}
+.sj-dot{width:6px;height:6px;border-radius:50%;background:rgba(201,98,74,.2);transition:background .3s,transform .3s}
+.sj-dot.active{background:var(--rose);transform:scale(1.3)}
+
+/* ══ S5 COMPARE ══ */
+.compare-bodies{display:flex;gap:20px;justify-content:center;align-items:flex-end;margin-top:32px;flex-wrap:nowrap}
+.cb{text-align:center}
+.cb p{font-size:10px;letter-spacing:.1em;margin-top:6px}
+
+/* ══ ABSORPTION ══ */
+.absorb-wrap{width:100%;max-width:280px;margin:32px auto 0}
+.stat-pill{display:inline-flex;align-items:baseline;gap:6px;margin-top:20px;padding:12px 20px;border:1.5px solid rgba(201,98,74,.2);border-radius:40px;background:rgba(253,232,224,.7)}
+.stat-pill span:first-child{font-family:var(--serif);font-size:32px;color:var(--rose)}
+.stat-pill span:last-child{font-size:12px;color:var(--mid)}
+
+/* ══ CONSTELLATION PILLS ══ */
+.const-wrap{position:relative;width:280px;height:280px;margin:40px auto 0}
+.const-fig{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.const-fig svg{width:100px;overflow:visible}
+.cpill{
+  position:absolute;
+  padding:8px 14px;border:1.5px solid rgba(201,98,74,.2);border-radius:40px;
+  background:rgba(253,244,240,.95);font-size:11px;color:var(--text);
+  display:flex;align-items:center;gap:6px;white-space:nowrap;
+  opacity:0;transform:scale(.85);transition:opacity .5s,transform .5s;
+  box-shadow:0 2px 10px rgba(201,98,74,.08);
+}
+.cpill.vis{opacity:1;transform:scale(1)}
+.cpill-dot{width:5px;height:5px;border-radius:50%;background:var(--rose);flex-shrink:0}
+/* positions around center */
+.cp0{top:0;left:50%;transform:translateX(-50%) scale(.85)}
+.cp0.vis{transform:translateX(-50%) scale(1)}
+.cp1{top:20px;right:0}
+.cp2{bottom:20px;right:0}
+.cp3{bottom:0;left:50%;transform:translateX(-50%) scale(.85)}
+.cp3.vis{transform:translateX(-50%) scale(1)}
+.cp4{bottom:20px;left:0}
+.cp5{top:20px;left:0}
+
+/* ══ CTA ══ */
+#final{background:linear-gradient(145deg,#fde8e0,#f0d4e8 50%,#fde0d8)}
+.pbox{border:1.5px solid rgba(201,98,74,.18);border-radius:22px;padding:38px 26px;max-width:340px;width:100%;background:rgba(255,252,250,.9);backdrop-filter:blur(12px);text-align:center;margin-top:22px;box-shadow:0 20px 48px rgba(201,98,74,.1)}
+.pn{font-family:var(--serif);font-size:28px;color:var(--text);margin-bottom:2px}
+.pt{font-size:11px;color:var(--dim);margin-bottom:20px}
+.fl{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:20px;text-align:left}
+.fl li{font-size:11px;color:var(--mid);display:flex;align-items:center;gap:8px}
+.fd{width:4px;height:4px;border-radius:50%;background:var(--rose);flex-shrink:0}
+.pr{font-family:var(--serif);font-size:40px;color:var(--rose);margin-bottom:2px}
+.pn2{font-size:11px;color:var(--dim);margin-bottom:20px}
+.ctab{width:100%;padding:15px;background:var(--rose);color:#fff;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:40px;cursor:pointer;transition:all .3s;box-shadow:0 8px 20px rgba(201,98,74,.28)}
+.ctab:hover{background:var(--mauve);transform:translateY(-2px)}
+.trust{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;font-size:10px;color:var(--dim);letter-spacing:.05em}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes throb{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes pr{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.7);opacity:0}}
+
+/* ══ MOBILE SCROLL-JACK ══ */
+/* Mobile: figure is contained, label overlays bottom of figure */
+.sj-mob-label{display:none}
+
+@media(max-width:600px){
+  /* figure: medium size, centered */
+  .sj-fig{
+    width:52vw !important;
+    position:relative;
+  }
+  /* hide desktop side labels */
+  .sj-label.left,
+  .sj-label.right{
+    display:none !important;
+  }
+  /* show mobile overlay label */
+  .sj-mob-label{
+    display:block;
+    position:absolute;
+    bottom:-8px;
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100vw - 40px);
+    max-width:320px;
+    z-index:10;
+  }
+  .sj-mob-state{
+    display:none;
+    background:rgba(253,244,240,0.92);
+    border:1px solid rgba(201,98,74,0.18);
+    border-radius:12px;
+    padding:10px 14px;
+    text-align:center;
+    backdrop-filter:blur(8px);
+    box-shadow:0 4px 16px rgba(201,98,74,0.1);
+  }
+  .sj-mob-state.active{display:block}
+  .sj-mob-name{
+    font-family:var(--serif);
+    font-size:18px;
+    color:var(--text);
+    line-height:1.2;
+    margin-bottom:3px;
+  }
+  .sj-mob-note{
+    font-size:11px;
+    color:var(--mid);
+    line-height:1.5;
+  }
+  /* sj-mid: keep row layout but tighter */
+  .sj-mid{
+    position:relative;
+    width:100%;
+    justify-content:center;
+  }
+}
+
+/* ══ FLIP CARDS ══ */
+.flip-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  width:100%;
+  max-width:680px;
+  margin-top:36px;
+}
+@media(max-width:520px){
+  .flip-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+}
+.flip-card{
+  perspective:900px;
+  height:160px;
+  cursor:pointer;
+}
+@media(max-width:520px){.flip-card{height:150px}}
+.flip-inner{
+  position:relative;
+  width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .55s cubic-bezier(.4,0,.2,1);
+}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{
+  position:absolute;inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  border-radius:16px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:14px 12px;text-align:center;
+  border:1.5px solid rgba(201,98,74,.15);
+  overflow:hidden;
+}
+.flip-front{
+  background:rgba(253,244,240,.95);
+  box-shadow:0 4px 20px rgba(201,98,74,.08);
+}
+.flip-back{
+  background:var(--rose);
+  transform:rotateY(180deg);
+  border-color:transparent;
+  box-shadow:0 6px 24px rgba(201,98,74,.28);
+}
+.flip-icon{font-size:26px;margin-bottom:10px}
+.flip-name{
+  font-family:var(--serif);
+  font-size:17px;color:var(--text);
+  line-height:1.2;margin-bottom:6px;
+}
+.flip-hint{
+  font-size:10px;color:rgba(201,98,74,.5);
+  letter-spacing:.12em;text-transform:uppercase;
+  margin-top:auto;
+}
+.flip-back-text{
+  font-size:11px;color:#fff;
+  line-height:1.5;font-weight:300;
+}
+.flip-back-name{
+  font-family:var(--serif);font-style:italic;
+  font-size:14px;color:rgba(255,255,255,.9);
+  margin-bottom:6px;
+}
+/* entry animation */
+.flip-card{
+  opacity:0;transform:translateY(20px);
+  transition:opacity .5s ease, transform .5s ease, box-shadow .2s;
+}
+.flip-card.appeared{opacity:1;transform:translateY(0)}
+.flip-card:hover .flip-front{box-shadow:0 8px 28px rgba(201,98,74,.14)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:rgba(201,98,74,.2);border-radius:3px}
+</style>
+</head>
+<body>
+
+<!-- OVERLAY -->
+<div id="ov">
+  <div class="ov-logo">Be Well</div>
+  <h1 class="ov-t">¿Y si lo que sientes tiene <em>una sola causa?</em></h1>
+  <p class="ov-s">Descúbrelo mientras bajas. Menos de 3 minutos.</p>
+  <div class="ov-b">
+    <button class="b-snd" id="bsnd">▶ &nbsp;Quiero escucharlo</button>
+    <button class="b-sil" id="bsil">Solo quiero verlo</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<div id="prog"></div>
+<div id="nav">
+  <span class="nav-brand">Be Well</span>
+  <button id="skip" onclick="document.getElementById('final').scrollIntoView({behavior:'smooth'})">Ver el producto ↓</button>
+</div>
+<button id="aud">
+  <svg id="iplay" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+  <svg id="ipause" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+</button>
+
+<!-- ══ S0 HERO ══ -->
+<section id="s0" style="background:linear-gradient(155deg,#fde8e0,#f7d4c8 40%,#ead0e4)">
+  <div class="ey" style="opacity:0;animation:fadeUp .8s .3s forwards">Be Well · Educación en salud</div>
+  <h1 class="BIG" style="opacity:0;animation:fadeUp 1s .5s forwards;margin-top:10px">Tu cuerpo está perdiendo<br>algo <em>vital.</em></h1>
+  <p class="cap" style="opacity:0;animation:fadeUp .8s .8s forwards;margin-top:16px">Y probablemente ya lo estás sintiendo — sin saber que tiene nombre.</p>
+
+  <!-- hero body figure -->
+  <div style="margin-top:36px;opacity:0;animation:fadeUp 1s 1s forwards">
+    <svg viewBox="0 0 200 340" fill="none" style="width:min(200px,50vw);overflow:visible">
+      <ellipse cx="100" cy="170" rx="85" ry="155" fill="rgba(201,98,74,.04)"/>
+      <path d="M100 32 C120 32 138 46 140 68 C143 88 136 105 132 120 C147 127 157 136 155 150 C153 163 142 168 131 168 L131 238 C131 276 127 302 123 326 L110 326 L107 258 L93 258 L90 326 L77 326 C73 302 69 276 69 238 L69 168 C58 168 47 163 45 150 C43 136 53 127 68 120 C64 105 57 88 60 68 C62 46 80 32 100 32Z"
+        stroke="rgba(201,98,74,.35)" stroke-width="1.5" fill="rgba(201,98,74,.06)"
+        stroke-dasharray="750" stroke-dashoffset="750" style="animation:draw 2.5s .5s ease forwards"/>
+      <circle cx="100" cy="18" r="16" stroke="rgba(201,98,74,.32)" stroke-width="1.5" fill="rgba(201,98,74,.06)" style="animation:fadeIn .6s 2.6s both"/>
+      <g style="animation:fadeIn 1s 2.9s both">
+        <circle cx="100" cy="84" r="4" fill="rgba(201,98,74,.6)" style="animation:float 3.2s infinite"/>
+        <circle cx="100" cy="128" r="3.5" fill="rgba(201,98,74,.5)" style="animation:float 3.8s .4s infinite"/>
+        <circle cx="100" cy="188" r="4" fill="rgba(201,98,74,.6)" style="animation:float 4s .8s infinite"/>
+        <circle cx="100" cy="244" r="3" fill="rgba(201,98,74,.4)" style="animation:float 3.5s .2s infinite"/>
+        <line x1="74" y1="80" x2="100" y2="84" stroke="rgba(201,98,74,.22)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="100" y1="84" x2="126" y2="80" stroke="rgba(201,98,74,.22)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="74" y1="188" x2="100" y2="188" stroke="rgba(201,98,74,.18)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="100" y1="188" x2="126" y2="188" stroke="rgba(201,98,74,.18)" stroke-width="1" stroke-dasharray="4 3"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hook vis" style="margin-top:36px;opacity:0;animation:fadeUp .8s 1.4s forwards">Baja y descúbrelo.</div>
+  <div class="sc" style="opacity:0;animation:fadeUp .6s 1.9s forwards"><span>Desliza</span><div class="scl"></div></div>
+</section>
+<div class="div"></div>
+
+<!-- ══ S1 QUÉ ES ══ -->
+<section id="s1">
+  <div class="ey rv">01 — El andamiaje invisible</div>
+  <div class="BIG rv d1" style="font-size:clamp(70px,16vw,180px);line-height:1;color:var(--rose);opacity:0" id="pct30">30<span style="font-size:.5em;font-style:italic">%</span></div>
+  <div class="MID rv d2">de toda la proteína<br>de tu cuerpo <em>es colágeno.</em></div>
+  <p class="cap rv d3">En tu piel. Tus huesos. Tus tendones. Tus vasos sanguíneos. Es la red que sostiene todo.</p>
+  <div class="hook rv d4">¿Y qué pasa cuando empieza a desaparecer?</div>
+</section>
+<div class="div"></div>
+
+<!-- ══ S2 DECLIVE ══ -->
+<section id="s2">
+  <div class="ey rv">02 — La biología del tiempo</div>
+  <h2 class="MID rv d1">A los <em>25</em> ya está<br>disminuyendo.</h2>
+  <p class="cap rv d2" style="max-width:360px">1% menos cada año. Sin avisarte. A los 40, tienes casi la mitad que a los 20.</p>
+  <div class="rv d3" style="width:100%;max-width:480px;display:flex;flex-direction:column;align-items:center" id="bars-wrap">
+    <div class="bars">
+      <div class="bc"><div class="bn" id="bn1">100%</div><div class="bt"><div class="bf f1" id="bf1" style="height:100%"></div></div><div class="ba">25</div></div>
+      <div class="bc"><div class="bn" id="bn2">85%</div><div class="bt"><div class="bf f2" id="bf2" style="height:85%"></div></div><div class="ba">35</div></div>
+      <div class="bc"><div class="bn" id="bn3">65%</div><div class="bt"><div class="bf f3" id="bf3" style="height:65%"></div></div><div class="ba">45</div></div>
+      <div class="bc"><div class="bn" id="bn4">50%</div><div class="bt"><div class="bf f4" id="bf4" style="height:50%"></div></div><div class="ba">55+</div></div>
+    </div>
+    <p style="font-size:10px;color:var(--dim);letter-spacing:.08em">PRODUCCIÓN NATURAL DE COLÁGENO</p>
+  </div>
+  <div class="hook rv d4">¿Lo estás sintiendo ya?</div>
+</section>
+<div class="div"></div>
+
+<!-- ══ S3 SÍNTOMAS — SCROLL-JACK ══ -->
+<div class="sj-outer" id="s3-outer">
+  <!-- sticky panel -->
+  <div class="sj-sticky" id="s3-sticky">
+    <div class="sj-top">
+      <div class="ey">03 — Lo que sientes sin saberlo</div>
+      <h2 class="MID" style="font-size:clamp(22px,3.5vw,40px)">Señales que <em>confundiste</em><br>con la edad.</h2>
+    </div>
+    <div class="sj-mid" id="s3-mid">
+      <!-- left labels -->
+      <div class="sj-label left" id="s3-l0" style="top:20%"><div class="sj-lname">Piel sin<br>firmeza</div><div class="sj-lnote">Pierde densidad y elasticidad</div></div>
+      <div class="sj-label left" id="s3-l1" style="top:35%"><div class="sj-lname">Articulaciones<br>rígidas</div><div class="sj-lnote">Especialmente al despertar</div></div>
+      <div class="sj-label left" id="s3-l2" style="top:50%"><div class="sj-lname">Cabello<br>más delgado</div><div class="sj-lnote">Menos volumen, más caída</div></div>
+      <!-- right labels -->
+      <div class="sj-label right" id="s3-r3" style="top:20%"><div class="sj-lname">Recuperación<br>lenta</div><div class="sj-lnote">El cuerpo tarda más</div></div>
+      <div class="sj-label right" id="s3-r4" style="top:35%"><div class="sj-lname">Intestino<br>sensible</div><div class="sj-lnote">La barrera pierde integridad</div></div>
+      <div class="sj-label right" id="s3-r5" style="top:50%"><div class="sj-lname">Cicatriza<br>lento</div><div class="sj-lnote">Heridas que tardan más</div></div>
+
+      <!-- figure -->
+      <div class="sj-fig" id="s3-fig">
+        <!-- BASE body always visible -->
+        <svg viewBox="0 0 160 280" fill="none" style="width:100%;overflow:visible">
+          <path d="M80 26 C96 26 110 38 112 56 C115 72 109 87 105 99 C118 106 126 115 124 128 C122 140 112 145 103 145 L103 200 C103 230 100 252 97 272 L84 272 L81 218 L75 218 L72 272 L59 272 C56 252 53 230 53 200 L53 145 C44 145 34 140 32 128 C30 115 38 106 51 99 C47 87 41 72 44 56 C46 38 64 26 80 26Z"
+            stroke="rgba(201,98,74,.35)" stroke-width="1.5" fill="rgba(201,98,74,.06)"/>
+          <circle cx="80" cy="13" r="13" stroke="rgba(201,98,74,.32)" stroke-width="1.5" fill="rgba(201,98,74,.06)"/>
+        </svg>
+        <!-- STATE 0: piel -->
+        <svg class="fig-state" id="fs3-0" viewBox="0 0 160 280" fill="none" style="position:absolute;top:0;left:0;width:100%;overflow:visible">
+          <!-- skin texture / sagging lines on face and body surface -->
+          <path d="M68 40 Q66 48 68 56" stroke="rgba(201,98,74,.55)" stroke-width="1.2" fill="none"/>
+          <path d="M92 40 Q94 48 92 56" stroke="rgba(201,98,74,.5)" stroke-width="1.2" fill="none"/>
+          <path d="M60 70 Q56 80 60 90" stroke="rgba(201,98,74,.4)" stroke-width="1" fill="none" stroke-dasharray="2 2"/>
+          <path d="M100 70 Q104 80 100 90" stroke="rgba(201,98,74,.4)" stroke-width="1" fill="none" stroke-dasharray="2 2"/>
+          <!-- sagging indicator -->
+          <path d="M53 128 Q42 138 48 148" stroke="rgba(201,98,74,.45)" stroke-width="1.2" fill="none"/>
+          <path d="M107 128 Q118 138 112 148" stroke="rgba(201,98,74,.45)" stroke-width="1.2" fill="none"/>
+          <!-- glow zone skin -->
+          <ellipse cx="80" cy="56" rx="28" ry="18" fill="rgba(201,98,74,.08)" style="animation:throb 2.5s infinite"/>
+          <text x="80" y="290" font-family="DM Sans" font-size="9" fill="rgba(201,98,74,.4)" text-anchor="middle" letter-spacing="1">PIEL SIN FIRMEZA</text>
+        </svg>
+        <!-- STATE 1: articulaciones -->
+        <svg class="fig-state" id="fs3-1" viewBox="0 0 160 280" fill="none" style="position:absolute;top:0;left:0;width:100%;overflow:visible">
+          <circle cx="32" cy="128" r="8" fill="none" stroke="rgba(201,98,74,.55)" stroke-width="1.5" style="animation:throb 2s infinite"/>
+          <circle cx="32" cy="128" r="14" fill="none" stroke="rgba(201,98,74,.2)" stroke-width="1" style="animation:pr 2s infinite"/>
+          <circle cx="128" cy="128" r="8" fill="none" stroke="rgba(201,98,74,.55)" stroke-width="1.5" style="animation:throb 2s .3s infinite"/>
+          <circle cx="128" cy="128" r="14" fill="none" stroke="rgba(201,98,74,.2)" stroke-width="1" style="animation:pr 2s .3s infinite"/>
+          <!-- knee -->
+          <circle cx="72" cy="218" r="7" fill="none" stroke="rgba(201,98,74,.45)" stroke-width="1.4" style="animation:throb 2.2s .5s infinite"/>
+          <circle cx="88" cy="218" r="7" fill="none" stroke="rgba(201,98,74,.45)" stroke-width="1.4" style="animation:throb 2.2s .7s infinite"/>
+          <text x="80" y="290" font-family="DM Sans" font-size="9" fill="rgba(201,98,74,.4)" text-anchor="middle" letter-spacing="1">ARTICULACIONES RÍGIDAS</text>
+        </svg>
+        <!-- STATE 2: cabello -->
+        <svg class="fig-state" id="fs3-2" viewBox="0 0 160 280" fill="none" style="position:absolute;top:0;left:0;width:100%;overflow:visible">
+          <path d="M68 24 Q64 6 70 -4" stroke="rgba(201,98,74,.55)" stroke-width="1.8" fill="none" stroke-dasharray="2 3"/>
+          <path d="M80 20 Q78 2 84 -6" stroke="rgba(201,98,74,.5)" stroke-width="1.8" fill="none" stroke-dasharray="2 3"/>
+          <path d="M92 24 Q96 6 90 -4" stroke="rgba(201,98,74,.45)" stroke-width="1.5" fill="none" stroke-dasharray="2 3"/>
+          <path d="M72 20 Q66 4 74 -8" stroke="rgba(201,98,74,.35)" stroke-width="1.2" fill="none" stroke-dasharray="2 4"/>
+          <!-- falling strand -->
+          <path d="M76 24 Q72 40 78 56" stroke="rgba(201,98,74,.4)" stroke-width="1" fill="none" stroke-dasharray="3 3" style="animation:throb 2s infinite"/>
+          <text x="80" y="290" font-family="DM Sans" font-size="9" fill="rgba(201,98,74,.4)" text-anchor="middle" letter-spacing="1">CABELLO MÁS DELGADO</text>
+        </svg>
+        <!-- STATE 3: recuperación lenta -->
+        <svg class="fig-state" id="fs3-3" viewBox="0 0 160 280" fill="none" style="position:absolute;top:0;left:0;width:100%;overflow:visible">
+          <!-- energy bars depleting -->
+          <rect x="110" y="80" width="30" height="6" rx="3" fill="rgba(201,98,74,.15)"/>
+          <rect x="110" y="80" width="10" height="6" rx="3" fill="rgba(201,98,74,.55)"/>
+          <rect x="110" y="92" width="30" height="6" rx="3" fill="rgba(201,98,74,.15)"/>
+          <rect x="110" y="92" width="16" height="6" rx="3" fill="rgba(201,98,74,.45)"/>
+          <rect x="110" y="104" width="30" height="6" rx="3" fill="rgba(201,98,74,.15)"/>
+          <rect x="110" y="104" width="6" height="6" rx="3" fill="rgba(201,98,74,.35)"/>
+          <!-- drooping posture -->
+          <path d="M80 150 Q78 170 80 190" stroke="rgba(201,98,74,.3)" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+          <!-- zz sleep -->
+          <text x="22" y="90" font-family="Cormorant Garamond,serif" font-size="14" fill="rgba(201,98,74,.4)" font-style="italic" style="animation:throb 2.5s infinite">z</text>
+          <text x="14" y="76" font-family="Cormorant Garamond,serif" font-size="11" fill="rgba(201,98,74,.3)" font-style="italic" style="animation:throb 2.5s .5s infinite">z</text>
+          <text x="8" y="64" font-family="Cormorant Garamond,serif" font-size="8" fill="rgba(201,98,74,.2)" font-style="italic" style="animation:throb 2.5s 1s infinite">z</text>
+          <text x="80" y="290" font-family="DM Sans" font-size="9" fill="rgba(201,98,74,.4)" text-anchor="middle" letter-spacing="1">RECUPERACIÓN LENTA</text>
+        </svg>
+        <!-- STATE 4: intestino -->
+        <svg class="fig-state" id="fs3-4" viewBox="0 0 160 280" fill="none" style="position:absolute;top:0;left:0;width:100%;overflow:visible">
+          <ellipse cx="80" cy="185" rx="22" ry="16" stroke="rgba(201,98,74,.55)" stroke-width="1.5" fill="rgba(201,98,74,.06)" stroke-dasharray="4 2" style="animation:throb 2.5s infinite"/>
+          <ellipse cx="80" cy="185" rx="32" ry="24" stroke="rgba(201,98,74,.18)" stroke-width="1" fill="none" stroke-dasharray="3 3" style="animation:pr 3s infinite"/>
+          <!-- wave lines -->
+          <path d="M58 175 Q66 170 74 175 Q82 180 90 175 Q98 170 106 175" stroke="rgba(201,98,74,.35)" stroke-width="1" fill="none" style="animation:throb 2s .3s infinite"/>
+          <text x="80" y="290" font-family="DM Sans" font-size="9" fill="rgba(201,98,74,.4)" text-anchor="middle" letter-spacing="1">INTESTINO SENSIBLE</text>
+        </svg>
+        <!-- STATE 5: cicatriza -->
+        <svg class="fig-state" id="fs3-5" viewBox="0 0 160 280" fill="none" style="position:absolute;top:0;left:0;width:100%;overflow:visible">
+          <!-- wound on arm -->
+          <path d="M36 115 L44 125" stroke="rgba(180,60,40,.6)" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="40" cy="120" rx="6" ry="4" fill="rgba(201,98,74,.12)" stroke="rgba(180,60,40,.35)" stroke-width="1" style="animation:throb 2s infinite"/>
+          <!-- slow heal indicator -->
+          <path d="M48 108 L60 108" stroke="rgba(201,98,74,.3)" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="62" y="112" font-family="DM Sans" font-size="8" fill="rgba(201,98,74,.4)">lento</text>
+          <text x="80" y="290" font-family="DM Sans" font-size="9" fill="rgba(201,98,74,.4)" text-anchor="middle" letter-spacing="1">CICATRIZA LENTO</text>
+        </svg>
+        <!-- mobile stacked labels -->
+        <div class="sj-mob-label" id="s3-mob">
+          <div class="sj-mob-state active" id="s3-mob-0"><div class="sj-mob-name">Piel sin firmeza</div><div class="sj-mob-note">Pierde densidad y elasticidad gradualmente</div></div>
+          <div class="sj-mob-state" id="s3-mob-1"><div class="sj-mob-name">Articulaciones rígidas</div><div class="sj-mob-note">Especialmente al despertar en la mañana</div></div>
+          <div class="sj-mob-state" id="s3-mob-2"><div class="sj-mob-name">Cabello más delgado</div><div class="sj-mob-note">Menos volumen, más caída, uñas frágiles</div></div>
+          <div class="sj-mob-state" id="s3-mob-3"><div class="sj-mob-name">Recuperación lenta</div><div class="sj-mob-note">El cuerpo tarda más en repararse</div></div>
+          <div class="sj-mob-state" id="s3-mob-4"><div class="sj-mob-name">Intestino sensible</div><div class="sj-mob-note">La barrera intestinal pierde integridad</div></div>
+          <div class="sj-mob-state" id="s3-mob-5"><div class="sj-mob-name">Cicatriza lento</div><div class="sj-mob-note">Heridas que tardan más de lo normal</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- progress dots -->
+    <div class="sj-dots" id="s3-dots">
+      <div class="sj-dot active"></div><div class="sj-dot"></div><div class="sj-dot"></div>
+      <div class="sj-dot"></div><div class="sj-dot"></div><div class="sj-dot"></div>
+    </div>
+  </div>
+  <!-- scroll spaces (6 states) -->
+  <div class="sj-space"></div><div class="sj-space"></div><div class="sj-space"></div>
+  <div class="sj-space"></div><div class="sj-space"></div><div class="sj-space"></div>
+  <div style="height:60px"></div>
+  <div style="text-align:center;padding:0 20px 80px;position:relative;z-index:2">
+    <div class="hook rv">¿Y qué es lo que lo destruye más rápido?</div>
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ══ S4 ENEMIGOS — SCROLL-JACK ══ -->
+<div class="sj-outer" id="s4-outer">
+  <div class="sj-sticky" id="s4-sticky">
+    <div class="sj-top">
+      <div class="ey">04 — Los destructores</div>
+      <h2 class="MID" style="font-size:clamp(22px,3.5vw,40px)">No es solo la edad.<br><em>Hay hábitos</em> que lo aceleran.</h2>
+    </div>
+    <div class="sj-mid" id="s4-mid">
+      <!-- left -->
+      <div class="sj-label left" id="s4-l0" style="top:28%"><div class="sj-lname">☀️ Sol sin<br>protección</div><div class="sj-lnote">Radicales libres que destruyen el colágeno dérmico</div></div>
+      <div class="sj-label left" id="s4-l1" style="top:28%"><div class="sj-lname">🍬 Azúcar<br>en exceso</div><div class="sj-lnote">Endurece y fragmenta las fibras — glicación</div></div>
+      <!-- right -->
+      <div class="sj-label right" id="s4-r2" style="top:28%"><div class="sj-lname">😮‍💨 Estrés<br>crónico</div><div class="sj-lnote">El cortisol bloquea su síntesis directamente</div></div>
+      <div class="sj-label right" id="s4-r3" style="top:28%"><div class="sj-lname">🚬 Tabaco</div><div class="sj-lnote">Reduce producción y contrae los vasos que lo nutren</div></div>
+
+      <div class="sj-fig" id="s4-fig">
+        <svg viewBox="0 0 160 280" fill="none" style="width:100%;overflow:visible">
+          <path d="M80 26 C96 26 110 38 112 56 C115 72 109 87 105 99 C118 106 126 115 124 128 C122 140 112 145 103 145 L103 200 C103 230 100 252 97 272 L84 272 L81 218 L75 218 L72 272 L59 272 C56 252 53 230 53 200 L53 145 C44 145 34 140 32 128 C30 115 38 106 51 99 C47 87 41 72 44 56 C46 38 64 26 80 26Z"
+            stroke="rgba(192,64,64,.4)" stroke-width="1.5" fill="rgba(255,100,80,.05)"/>
+          <circle cx="80" cy="13" r="13" stroke="rgba(192,64,64,.38)" stroke-width="1.5" fill="rgba(255,100,80,.04)"/>
+        </svg>
+        <!-- STATE 0: sol -->
+        <svg class="fig-state" id="fs4-0" viewBox="0 0 160 280" fill="none" style="position:absolute;top:0;left:0;width:100%;overflow:visible">
+          <circle cx="148" cy="10" r="12" fill="rgba(230,180,50,.22)" stroke="rgba(230,180,50,.45)" stroke-width="1.2"/>
+          <g style="animation:throb 2s infinite">
+            <line x1="136" y1="18" x2="118" y2="42" stroke="rgba(230,180,50,.5)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="148" y1="24" x2="130" y2="50" stroke="rgba(230,180,50,.35)" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="152" y1="36" x2="132" y2="58" stroke="rgba(230,180,50,.25)" stroke-width="1.2" stroke-linecap="round"/>
+          </g>
+          <!-- UV damage marks on skin surface -->
+          <path d="M72 48 L78 56 L70 64" stroke="rgba(180,60,40,.4)" stroke-width="1" fill="none"/>
+          <path d="M92 56 L86 64 L94 72" stroke="rgba(180,60,40,.35)" stroke-width="1" fill="none"/>
+          <ellipse cx="80" cy="52" rx="24" ry="14" fill="rgba(230,150,50,.08)" style="animation:throb 2.5s infinite"/>
+          <text x="80" y="290" font-family="DM Sans" font-size="9" fill="rgba(192,64,64,.4)" text-anchor="middle" letter-spacing="1">SOL SIN PROTECCIÓN</text>
+        </svg>
+        <!-- STATE 1: azúcar -->
+        <svg class="fig-state" id="fs4-1" viewBox="0 0 160 280" fill="none" style="position:absolute;top:0;left:0;width:100%;overflow:visible">
+          <g style="animation:throb 2.8s .5s infinite">
+            <path d="M46 120 L54 110 L62 120 L54 130Z" stroke="rgba(192,64,64,.55)" stroke-width="1" fill="rgba(192,64,64,.08)"/>
+            <path d="M98 120 L106 110 L114 120 L106 130Z" stroke="rgba(192,64,64,.55)" stroke-width="1" fill="rgba(192,64,64,.08)"/>
+          </g>
+          <!-- fiber break marks -->
+          <path d="M60 88 L68 96 L60 104" stroke="rgba(180,60,40,.5)" stroke-width="1.2" fill="none"/>
+          <path d="M100 145 L94 153 L102 161" stroke="rgba(180,60,40,.45)" stroke-width="1.2" fill="none"/>
+          <text x="80" y="290" font-family="DM Sans" font-size="9" fill="rgba(192,64,64,.4)" text-anchor="middle" letter-spacing="1">AZÚCAR EN EXCESO</text>
+        </svg>
+        <!-- STATE 2: estrés -->
+        <svg class="fig-state" id="fs4-2" viewBox="0 0 160 280" fill="none" style="position:absolute;top:0;left:0;width:100%;overflow:visible">
+          <path d="M14 145 Q26 138 38 145 Q50 152 62 145" stroke="rgba(192,64,64,.32)" stroke-width="1.4" fill="none" style="animation:throb 1.8s .3s infinite"/>
+          <path d="M98 145 Q110 138 122 145 Q134 152 146 145" stroke="rgba(192,64,64,.32)" stroke-width="1.4" fill="none" style="animation:throb 1.8s .6s infinite"/>
+          <path d="M14 158 Q26 151 38 158" stroke="rgba(192,64,64,.2)" stroke-width="1" fill="none" style="animation:throb 2s .5s infinite"/>
+          <path d="M122 158 Q134 151 146 158" stroke="rgba(192,64,64,.2)" stroke-width="1" fill="none" style="animation:throb 2s .8s infinite"/>
+          <!-- tension head lines -->
+          <path d="M72 20 Q70 10 72 4" stroke="rgba(192,64,64,.4)" stroke-width="1.2" fill="none" stroke-dasharray="2 2"/>
+          <path d="M88 20 Q90 10 88 4" stroke="rgba(192,64,64,.4)" stroke-width="1.2" fill="none" stroke-dasharray="2 2"/>
+          <text x="80" y="290" font-family="DM Sans" font-size="9" fill="rgba(192,64,64,.4)" text-anchor="middle" letter-spacing="1">ESTRÉS CRÓNICO</text>
+        </svg>
+        <!-- STATE 3: tabaco -->
+        <svg class="fig-state" id="fs4-3" viewBox="0 0 160 280" fill="none" style="position:absolute;top:0;left:0;width:100%;overflow:visible">
+          <path d="M70 274 Q66 258 72 244 Q78 230 70 216" stroke="rgba(130,130,130,.35)" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
+          <path d="M82 274 Q78 255 84 241" stroke="rgba(130,130,130,.25)" stroke-width="1.2" fill="none" stroke-dasharray="3 4"/>
+          <!-- cigarette -->
+          <rect x="96" y="138" width="20" height="5" rx="2.5" fill="rgba(201,98,74,.2)" stroke="rgba(201,98,74,.4)" stroke-width=".8"/>
+          <rect x="116" y="138" width="8" height="5" rx="1" fill="rgba(200,150,100,.35)"/>
+          <!-- vascular constriction -->
+          <path d="M34 128 C38 122 36 118 38 128" stroke="rgba(192,64,64,.45)" stroke-width="1.2" fill="none"/>
+          <path d="M126 128 C122 122 124 118 122 128" stroke="rgba(192,64,64,.45)" stroke-width="1.2" fill="none"/>
+          <text x="80" y="290" font-family="DM Sans" font-size="9" fill="rgba(192,64,64,.4)" text-anchor="middle" letter-spacing="1">TABACO</text>
+        </svg>
+        <!-- mobile stacked labels -->
+        <div class="sj-mob-label" id="s4-mob">
+          <div class="sj-mob-state active" id="s4-mob-0"><div class="sj-mob-name">☀️ Sol sin protección</div><div class="sj-mob-note">Radicales libres que destruyen el colágeno dérmico</div></div>
+          <div class="sj-mob-state" id="s4-mob-1"><div class="sj-mob-name">🍬 Azúcar en exceso</div><div class="sj-mob-note">Endurece y fragmenta las fibras — glicación</div></div>
+          <div class="sj-mob-state" id="s4-mob-2"><div class="sj-mob-name">😮‍💨 Estrés crónico</div><div class="sj-mob-note">El cortisol bloquea la síntesis directamente</div></div>
+          <div class="sj-mob-state" id="s4-mob-3"><div class="sj-mob-name">🚬 Tabaco</div><div class="sj-mob-note">Reduce producción y contrae los vasos que lo nutren</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sj-dots" id="s4-dots">
+      <div class="sj-dot active"></div><div class="sj-dot"></div>
+      <div class="sj-dot"></div><div class="sj-dot"></div>
+    </div>
+  </div>
+  <div class="sj-space"></div><div class="sj-space"></div>
+  <div class="sj-space"></div><div class="sj-space"></div>
+  <div style="height:60px"></div>
+  <div style="text-align:center;padding:0 20px 80px;position:relative;z-index:2">
+    <div class="hook rv">¿Qué pasa cuando sí tienes suficiente?</div>
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ══ S5 CON VS SIN ══ -->
+<section id="s5">
+  <div class="ey rv">05 — La diferencia real</div>
+  <h2 class="MID rv d1">Lo que cambia cuando<br>tu colágeno está <em>bien nutrido.</em></h2>
+  <div class="compare-bodies rv d2">
+    <div class="cb">
+      <svg viewBox="0 0 120 210" fill="none" style="width:min(90px,22vw);overflow:visible">
+        <path d="M60 20 C72 20 81 29 83 43 C85 55 81 66 78 75 C87 80 93 88 91 99 C89 109 82 113 76 113 L76 154 C76 176 73 193 71 210 L61 210 L59 174 L55 174 L53 210 L43 210 C41 193 38 176 38 154 L38 113 C32 113 25 109 23 99 C21 88 27 80 36 75 C33 66 29 55 31 43 C33 29 48 20 60 20Z"
+          stroke="rgba(180,50,50,.45)" stroke-width="1.4" fill="rgba(255,100,80,.05)" stroke-dasharray="5 4"/>
+        <circle cx="60" cy="9" r="11" stroke="rgba(180,50,50,.42)" stroke-width="1.4" fill="rgba(255,100,80,.04)"/>
+        <path d="M44 44 L50 52 L43 59" stroke="rgba(180,50,50,.5)" stroke-width="1" fill="none"/>
+        <path d="M76 75 L71 83 L78 90" stroke="rgba(180,50,50,.4)" stroke-width="1" fill="none"/>
+        <circle cx="23" cy="99" r="5" fill="none" stroke="rgba(180,50,50,.35)" stroke-width="1.2" style="animation:throb 2.5s infinite"/>
+        <circle cx="91" cy="99" r="5" fill="none" stroke="rgba(180,50,50,.35)" stroke-width="1.2" style="animation:throb 2.5s .4s infinite"/>
+      </svg>
+      <p style="color:rgba(180,50,50,.55)">Sin colágeno</p>
+    </div>
+    <div class="cb">
+      <svg viewBox="0 0 120 210" fill="none" style="width:min(110px,26vw);overflow:visible">
+        <ellipse cx="60" cy="105" rx="52" ry="92" fill="rgba(201,98,74,.04)"/>
+        <path d="M60 20 C72 20 81 29 83 43 C85 55 81 66 78 75 C87 80 93 88 91 99 C89 109 82 113 76 113 L76 154 C76 176 73 193 71 210 L61 210 L59 174 L55 174 L53 210 L43 210 C41 193 38 176 38 154 L38 113 C32 113 25 109 23 99 C21 88 27 80 36 75 C33 66 29 55 31 43 C33 29 48 20 60 20Z"
+          stroke="rgba(201,98,74,.48)" stroke-width="1.5" fill="rgba(201,98,74,.08)"/>
+        <circle cx="60" cy="9" r="11" stroke="rgba(201,98,74,.45)" stroke-width="1.5" fill="rgba(201,98,74,.07)"/>
+        <circle cx="60" cy="50" r="3.5" fill="rgba(201,98,74,.65)" style="animation:float 3s infinite"/>
+        <circle cx="60" cy="84" r="3" fill="rgba(201,98,74,.55)" style="animation:float 3.6s .4s infinite"/>
+        <circle cx="60" cy="122" r="3.5" fill="rgba(201,98,74,.65)" style="animation:float 4s .8s infinite"/>
+        <line x1="44" y1="47" x2="60" y2="50" stroke="rgba(201,98,74,.22)" stroke-width=".8" stroke-dasharray="3 3"/>
+        <line x1="60" y1="50" x2="76" y2="47" stroke="rgba(201,98,74,.22)" stroke-width=".8" stroke-dasharray="3 3"/>
+        <line x1="44" y1="122" x2="60" y2="122" stroke="rgba(201,98,74,.18)" stroke-width=".8" stroke-dasharray="3 3"/>
+        <line x1="60" y1="122" x2="76" y2="122" stroke="rgba(201,98,74,.18)" stroke-width=".8" stroke-dasharray="3 3"/>
+        <ellipse cx="60" cy="113" rx="40" ry="7" fill="rgba(201,98,74,.04)"/>
+      </svg>
+      <p style="color:rgba(201,98,74,.65)">Con colágeno</p>
+    </div>
+  </div>
+
+  <!-- compare table -->
+  <div class="rv d3" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;width:100%;max-width:560px;margin-top:28px" id="cmp-wrap">
+    <div style="padding:22px 18px;border:1px solid rgba(201,98,74,.12);background:rgba(255,228,222,.6);border-radius:14px 0 0 14px">
+      <div style="font-family:var(--serif);font-size:18px;color:#b83030;margin-bottom:14px">Sin colágeno</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px" id="bad-list">
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s,transform .4s"><span style="position:absolute;left:0;color:#b83030">−</span>Piel floja y sin densidad</li>
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s .08s,transform .4s .08s"><span style="position:absolute;left:0;color:#b83030">−</span>Articulaciones con fricción</li>
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s .16s,transform .4s .16s"><span style="position:absolute;left:0;color:#b83030">−</span>Cabello fino, uñas frágiles</li>
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s .24s,transform .4s .24s"><span style="position:absolute;left:0;color:#b83030">−</span>Recuperación lenta</li>
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s .32s,transform .4s .32s"><span style="position:absolute;left:0;color:#b83030">−</span>Intestino permeable</li>
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s .4s,transform .4s .4s"><span style="position:absolute;left:0;color:#b83030">−</span>Envejecimiento acelerado</li>
+      </ul>
+    </div>
+    <div style="padding:22px 18px;border:1px solid rgba(201,98,74,.12);background:rgba(253,244,240,.9);border-radius:0 14px 14px 0">
+      <div style="font-family:var(--serif);font-size:18px;color:var(--mauve);margin-bottom:14px">Con colágeno</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px" id="good-list">
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s,transform .4s"><span style="position:absolute;left:0;color:var(--mauve)">+</span>Piel firme y luminosa</li>
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s .08s,transform .4s .08s"><span style="position:absolute;left:0;color:var(--mauve)">+</span>Movimiento fluido</li>
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s .16s,transform .4s .16s"><span style="position:absolute;left:0;color:var(--mauve)">+</span>Cabello con volumen</li>
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s .24s,transform .4s .24s"><span style="position:absolute;left:0;color:var(--mauve)">+</span>Recuperación ágil</li>
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s .32s,transform .4s .32s"><span style="position:absolute;left:0;color:var(--mauve)">+</span>Barrera intestinal íntegra</li>
+        <li style="font-size:12px;color:var(--mid);padding-left:13px;position:relative;opacity:0;transform:translateX(-6px);transition:opacity .4s .4s,transform .4s .4s"><span style="position:absolute;left:0;color:var(--mauve)">+</span>Vitalidad sostenida</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="hook rv d4">¿Pero no todo el colágeno funciona igual?</div>
+</section>
+<div class="div"></div>
+
+<!-- ══ S6 HIDROLIZADO ══ -->
+<section id="s6">
+  <div class="ey rv">06 — La ciencia</div>
+  <h2 class="MID rv d1">El colágeno <em>hidrolizado</em><br>llega donde otros no.</h2>
+  <div class="absorb-wrap rv d2">
+    <svg viewBox="0 0 220 300" fill="none" style="width:100%;overflow:visible">
+      <text x="110" y="18" font-family="DM Sans" font-size="8" fill="rgba(201,98,74,.3)" text-anchor="middle" letter-spacing="1.5">RUTA DE ABSORCIÓN</text>
+      <path d="M60 34 C42 42 34 64 36 86 C39 108 53 119 62 130 C70 139 72 150 68 163 C64 176 55 185 54 199 C54 220 67 233 84 237 C101 241 133 237 149 232 C165 226 173 215 173 201 C173 186 164 176 162 163 C160 150 163 139 173 129 C184 118 198 107 200 83 C202 59 191 39 170 34 C153 29 136 27 110 27 C84 27 66 29 60 34Z"
+        stroke="rgba(201,98,74,.12)" stroke-width="1" fill="rgba(201,98,74,.02)"/>
+      <g style="animation:float 3s infinite">
+        <circle cx="94" cy="50" r="4.5" fill="rgba(201,98,74,.52)"/>
+        <circle cx="112" cy="42" r="3.5" fill="rgba(201,98,74,.44)"/>
+        <circle cx="130" cy="50" r="4.5" fill="rgba(201,98,74,.52)"/>
+        <circle cx="103" cy="63" r="3" fill="rgba(201,98,74,.38)"/>
+        <circle cx="121" cy="61" r="3.5" fill="rgba(201,98,74,.46)"/>
+      </g>
+      <rect x="55" y="175" width="110" height="14" rx="7" stroke="rgba(201,98,74,.18)" stroke-width="1" fill="rgba(201,98,74,.06)"/>
+      <text x="110" y="186" font-family="DM Sans" font-size="7.5" fill="rgba(201,98,74,.42)" text-anchor="middle" letter-spacing="1">TORRENTE SANGUÍNEO</text>
+      <circle cx="68" cy="182" r="2.2" fill="rgba(201,98,74,.4)"/>
+      <circle cx="82" cy="182" r="1.8" fill="rgba(201,98,74,.32)"/>
+      <circle cx="148" cy="182" r="2.2" fill="rgba(201,98,74,.4)"/>
+      <circle cx="162" cy="182" r="1.8" fill="rgba(201,98,74,.3)"/>
+      <path d="M110 193 L110 213" stroke="rgba(201,98,74,.2)" stroke-width="1"/>
+      <polygon points="105,210 110,219 115,210" fill="rgba(201,98,74,.2)"/>
+      <ellipse cx="110" cy="248" rx="38" ry="26" stroke="rgba(201,98,74,.22)" stroke-width="1" fill="rgba(201,98,74,.055)"/>
+      <ellipse cx="110" cy="248" rx="13" ry="9" stroke="rgba(201,98,74,.3)" stroke-width=".9" fill="rgba(201,98,74,.08)"/>
+      <circle cx="88" cy="244" r="2" fill="rgba(201,98,74,.55)" style="animation:float 2.8s infinite"/>
+      <circle cx="132" cy="244" r="2" fill="rgba(201,98,74,.55)" style="animation:float 3.2s .4s infinite"/>
+      <circle cx="110" cy="234" r="2" fill="rgba(201,98,74,.48)" style="animation:float 2.5s .8s infinite"/>
+      <text x="110" y="288" font-family="DM Sans" font-size="8.5" fill="rgba(201,98,74,.35)" text-anchor="middle" letter-spacing="1">FIBROBLASTO · PRODUCE MÁS COLÁGENO</text>
+    </svg>
+  </div>
+  <div class="stat-pill rv d3">
+    <span>~90%</span><span>de biodisponibilidad · Lo reactiva.</span>
+  </div>
+  <div class="hook rv d4">Pero necesita aliados para funcionar del todo.</div>
+</section>
+<div class="div"></div>
+
+<!-- ══ S7 INGREDIENTES FLIP ══ -->
+<section id="s7">
+  <div class="ey rv">07 — La fórmula</div>
+  <h2 class="MID rv d1">No es solo colágeno.<br>Es el <em>ecosistema</em> completo.</h2>
+  <p class="cap rv d2" style="margin-top:8px">Toca cada tarjeta para descubrir por qué cada ingrediente importa.</p>
+
+  <div class="flip-grid" id="flip-grid">
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="flip-icon">🧬</div>
+          <div class="flip-name">Colágeno<br>Tipo I y III</div>
+          <div class="flip-hint">toca para saber más</div>
+        </div>
+        <div class="flip-back">
+          <div class="flip-back-name">Colágeno I y III</div>
+          <div class="flip-back-text">10g por porción. Dosis clínica. Hidrolizado para absorción directa. Activa los fibroblastos para producir más colágeno.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="flip-icon">🍊</div>
+          <div class="flip-name">Vitamina C</div>
+          <div class="flip-hint">toca para saber más</div>
+        </div>
+        <div class="flip-back">
+          <div class="flip-back-name">Vitamina C</div>
+          <div class="flip-back-text">Sin ella, el cuerpo no puede unir las fibras de colágeno. Es el cofactor indispensable para que el colágeno se forme.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="flip-icon">⚡</div>
+          <div class="flip-name">Zinc</div>
+          <div class="flip-hint">toca para saber más</div>
+        </div>
+        <div class="flip-back">
+          <div class="flip-back-name">Zinc</div>
+          <div class="flip-back-text">Activa las enzimas de formación y mantenimiento de fibras. Sin él, la síntesis de colágeno se detiene.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="flip-icon">🌿</div>
+          <div class="flip-name">Magnesio</div>
+          <div class="flip-hint">toca para saber más</div>
+        </div>
+        <div class="flip-back">
+          <div class="flip-back-name">Magnesio</div>
+          <div class="flip-back-text">Apoya la síntesis proteica y la salud muscular y ósea — el entorno que el colágeno necesita para funcionar.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="flip-icon">✨</div>
+          <div class="flip-name">Biotina</div>
+          <div class="flip-hint">toca para saber más</div>
+        </div>
+        <div class="flip-back">
+          <div class="flip-back-name">Biotina</div>
+          <div class="flip-back-text">Vitamina B7 que nutre la queratina — proteína de cabello, piel y uñas que junto al colágeno da estructura a piel y cabello.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="flip-icon">🫐</div>
+          <div class="flip-name">Resveratrol</div>
+          <div class="flip-hint">toca para saber más</div>
+        </div>
+        <div class="flip-back">
+          <div class="flip-back-name">Resveratrol</div>
+          <div class="flip-back-text">Protege las fibras de colágeno del daño oxidativo — los radicales libres del sol y el estrés.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="hook rv d4">Existe una fórmula con todo esto. En un solo polvo.</div>
+</section>
+<div class="div"></div>
+
+<!-- ══ FINAL ══ -->
+<section id="final" style="background:linear-gradient(145deg,#fde8e0,#f0d4e8 50%,#fde0d8)">
+  <div class="ey rv">Be Well · Colágeno Funcional</div>
+  <h2 class="BIG rv d1" style="font-size:clamp(30px,5.5vw,64px)">Tu cuerpo lo está pidiendo.<br><em>Dale lo que necesita.</em></h2>
+  <div class="pbox rv d2">
+    <div style="width:72px;height:100px;margin:0 auto 18px">
+      <svg viewBox="0 0 72 100" fill="none" style="width:100%;height:100%">
+        <rect x="12" y="36" width="48" height="54" rx="8" fill="rgba(201,98,74,.06)" stroke="rgba(201,98,74,.22)" stroke-width="1"/>
+        <rect x="8" y="26" width="56" height="14" rx="6" fill="rgba(201,98,74,.09)" stroke="rgba(201,98,74,.25)" stroke-width="1"/>
+        <rect x="17" y="44" width="38" height="38" rx="4" fill="rgba(201,98,74,.03)" stroke="rgba(201,98,74,.1)" stroke-width=".7"/>
+        <text x="36" y="61" font-family="Cormorant Garamond,serif" font-size="7.5" fill="rgba(201,98,74,.58)" text-anchor="middle" font-style="italic">Be Well</text>
+        <text x="36" y="73" font-family="DM Sans" font-size="5" fill="rgba(201,98,74,.36)" text-anchor="middle" letter-spacing="1.2">COLÁGENO</text>
+        <ellipse cx="36" cy="26" rx="24" ry="3.5" fill="rgba(201,98,74,.06)"/>
+      </svg>
+    </div>
+    <div class="pn">Colágeno Be Well</div>
+    <div class="pt">Fórmula funcional completa · 30 porciones</div>
+    <ul class="fl">
+      <li><span class="fd"></span>10g de colágeno hidrolizado Tipo I y III</li>
+      <li><span class="fd"></span>Vitamina C, Zinc, Magnesio, Biotina y Resveratrol</li>
+      <li><span class="fd"></span>Sin azúcar · Sin rellenos · 100% natural</li>
+      <li><span class="fd"></span>Se disuelve en cualquier bebida</li>
+    </ul>
+    <div class="pr">$89.900</div>
+    <div class="pn2">COP · envío gratis a todo el país</div>
+    <button class="ctab" onclick="alert('Redirigiendo a tienda Be Well...')">Quiero mi Colágeno Be Well →</button>
+  </div>
+  <div class="trust rv d3"><span>+15.000 mujeres</span><span>·</span><span>100% natural</span><span>·</span><span>Garantía de satisfacción</span></div>
+  <p style="margin-top:24px;font-size:10px;color:rgba(58,31,26,.15);text-align:center;letter-spacing:.1em">BE WELL · ALIMENTOS FUNCIONALES NATURALES</p>
+</section>
+
+<script>
+// ══ AUDIO
+const narrs=[
+  "Hay algo que le está pasando a tu cuerpo ahora mismo. Y probablemente ya lo estás sintiendo — sin saber que tiene nombre.",
+  "El colágeno es el treinta por ciento de toda la proteína de tu cuerpo. Está en tu piel, tus huesos, tus tendones, tus vasos sanguíneos. Es la red que sostiene todo.",
+  "A los veinticinco años, tu producción de colágeno empieza a caer. Uno por ciento menos cada año. A los cuarenta, tienes casi la mitad que a los veinte.",
+  "La piel pierde firmeza. Las articulaciones se endurecen. El cabello se adelgaza. La recuperación tarda más. Lo llamaste el paso del tiempo — pero tiene otro nombre.",
+  "Además de la edad, hay hábitos que destruyen el colágeno mucho más rápido. El azúcar lo fragmenta. El sol lo desintegra. El estrés bloquea su síntesis. El tabaco lo corta.",
+  "Cuando tienes el colágeno que necesitas, la diferencia es visible. La piel más firme. Las articulaciones fluidas. El cuerpo que se repara.",
+  "El colágeno hidrolizado se absorbe directamente al torrente sanguíneo y reactiva los fibroblastos — las células que producen colágeno. No lo reemplaza. Lo reactiva.",
+  "Para funcionar, necesita aliados. Vitamina C, Zinc, Magnesio, Biotina y Resveratrol. Be Well los formuló todos juntos.",
+  "Be Well. Un polvo. Dosis clínica. Sin rellenos. Porque tu cuerpo lo está pidiendo."
+];
+const secIds=['s0','s1','s2','s3-outer','s4-outer','s5','s6','s7','final'];
+let audioOn=false,paused=false,curIdx=0;
+const synth=window.speechSynthesis;
+function stopSpeak(){synth.cancel()}
+function speak(i){
+  if(!audioOn||paused||i<0||i>=narrs.length)return;
+  stopSpeak();
+  const u=new SpeechSynthesisUtterance(narrs[i]);
+  u.lang='es-ES';u.rate=.88;u.pitch=1;synth.speak(u);
+}
+function setIcon(p){
+  document.getElementById('iplay').style.display=p?'none':'block';
+  document.getElementById('ipause').style.display=p?'block':'none';
+}
+function closeOv(){
+  const o=document.getElementById('ov');o.classList.add('out');
+  setTimeout(()=>o.style.display='none',750);
+}
+document.getElementById('bsnd').onclick=()=>{
+  audioOn=true;paused=false;closeOv();
+  const a=document.getElementById('aud');a.style.display='flex';setIcon(true);
+  speak(0);curIdx=0;
+};
+document.getElementById('bsil').onclick=()=>{audioOn=false;closeOv()};
+document.getElementById('aud').onclick=()=>{
+  if(!audioOn)return;
+  if(!paused){paused=true;stopSpeak();setIcon(false)}
+  else{paused=false;setIcon(true);speak(curIdx)}
+};
+
+// progress
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement;
+  document.getElementById('prog').style.width=(s.scrollTop/(s.scrollHeight-s.clientHeight)*100)+'%';
+},{passive:true});
+
+// reveals
+const rvo=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis')}});
+},{threshold:.12});
+document.querySelectorAll('.rv,.hook').forEach(el=>rvo.observe(el));
+
+// section audio sync
+const so=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=secIds.indexOf(e.target.id);
+      if(i!==-1&&i!==curIdx){curIdx=i;if(audioOn&&!paused)speak(i)}
+    }
+  });
+},{threshold:.45});
+secIds.forEach(id=>{const el=document.getElementById(id);if(el)so.observe(el)});
+
+// ══ SCROLL-JACK ENGINE
+function sjSetState(sectionId,stateIdx,totalStates,labelIds,dotId){
+  // labels
+  labelIds.forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el) el.classList.toggle('active',i===stateIdx);
+  });
+  // figure states
+  for(let i=0;i<totalStates;i++){
+    const fs=document.getElementById('fs'+sectionId+'-'+i);
+    if(fs) fs.classList.toggle('active',i===stateIdx);
+  }
+  // dots
+  const dots=document.getElementById(dotId);
+  if(dots){
+    [...dots.children].forEach((d,i)=>d.classList.toggle('active',i===stateIdx));
+  }
+}
+
+function updateSJ(){
+  // S3 — 6 states
+  const s3=document.getElementById('s3-outer');
+  if(s3){
+    const rect=s3.getBoundingClientRect();
+    const h=s3.offsetHeight;
+    const progress=Math.max(0,Math.min(1,-rect.top/(h-window.innerHeight)));
+    const state=Math.min(5,Math.floor(progress*6));
+    const s3labels=['s3-l0','s3-l1','s3-l2','s3-r3','s3-r4','s3-r5'];
+    // show only left or right label for current state
+    s3labels.forEach((id,i)=>{
+      const el=document.getElementById(id);
+      if(el) el.classList.toggle('active',i===state);
+    });
+    for(let i=0;i<6;i++){
+      const fs=document.getElementById('fs3-'+i);
+      if(fs) fs.classList.toggle('active',i===state);
+      const mob=document.getElementById('s3-mob-'+i);
+      if(mob) mob.classList.toggle('active',i===state);
+    }
+    const dots=document.getElementById('s3-dots');
+    if(dots)[...dots.children].forEach((d,i)=>d.classList.toggle('active',i===state));
+  }
+
+  // S4 — 4 states
+  const s4=document.getElementById('s4-outer');
+  if(s4){
+    const rect=s4.getBoundingClientRect();
+    const h=s4.offsetHeight;
+    const progress=Math.max(0,Math.min(1,-rect.top/(h-window.innerHeight)));
+    const state=Math.min(3,Math.floor(progress*4));
+    ['s4-l0','s4-l1','s4-r2','s4-r3'].forEach((id,i)=>{
+      const el=document.getElementById(id);
+      if(el) el.classList.toggle('active',i===state);
+    });
+    for(let i=0;i<4;i++){
+      const fs=document.getElementById('fs4-'+i);
+      if(fs) fs.classList.toggle('active',i===state);
+      const mob=document.getElementById('s4-mob-'+i);
+      if(mob) mob.classList.toggle('active',i===state);
+    }
+    const dots=document.getElementById('s4-dots');
+    if(dots)[...dots.children].forEach((d,i)=>d.classList.toggle('active',i===state));
+  }
+}
+window.addEventListener('scroll',updateSJ,{passive:true});
+updateSJ();
+
+// ══ BARS
+let bDone=false;
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&!bDone){bDone=true;
+      ['bf1','bf2','bf3','bf4'].forEach((id,i)=>{
+        setTimeout(()=>{
+          document.getElementById(id).style.transform='scaleY(1)';
+          document.getElementById(['bn1','bn2','bn3','bn4'][i]).classList.add('v');
+        },i*300);
+      });
+    }
+  });
+},{threshold:.3}).observe(document.getElementById('bars-wrap'));
+
+// ══ FLIP CARDS APPEAR
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.flip-card').forEach((card,i)=>{
+        setTimeout(()=>card.classList.add('appeared'),i*100);
+      });
+    }
+  });
+},{threshold:.2}).observe(document.getElementById('flip-grid'));
+
+// ══ COMPARE LISTS S5
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('li').forEach(li=>li.style.opacity='1');
+      e.target.querySelectorAll('li').forEach(li=>li.style.transform='translateX(0)');
+    }
+  });
+},{threshold:.25}).observe(document.getElementById('cmp-wrap'));
+
+// ══ 30% counter animate
+let pDone=false;
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&!pDone){pDone=true;
+      const el=document.getElementById('pct30');
+      el.style.opacity='0';el.style.transition='opacity .6s';
+      setTimeout(()=>{el.style.opacity='1'},100);
+    }
+  });
+},{threshold:.3}).observe(document.getElementById('pct30'));
+</script>
+</body>
+</html>
